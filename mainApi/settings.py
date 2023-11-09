@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-+opp&y$u52q27-ftw6htnif4hd-q-vj#y$bvm46s^#5c#cbumq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '52.54.186.208']
 
 # Application definition
 
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     
     # my_libraries
     'rest_framework',
+    'drf_spectacular',
 ]
 
 AUTH_USER_MODEL = 'my_auth.User'
@@ -134,7 +135,7 @@ INTERNAL_IPS = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "http://127.0.0.1:8000"
+    "http://127.0.0.1:8000",
 ]
 
 # Default primary key field type
@@ -147,5 +148,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
-    ]
+    ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }

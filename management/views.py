@@ -11,19 +11,16 @@ from rest_framework.permissions import IsAdminUser, AllowAny
 class HotelViewSet(viewsets.ModelViewSet):
     queryset = Hotel.objects.order_by('-pk')
     serializer_class = HotelSerializer
-    permission_classes = [IsAdminUser]
 
 
 class RoomTypeViewSet(viewsets.ModelViewSet):
     queryset = RoomType.objects.order_by('-pk')
     serializer_class = RoomTypeSerializer
-    permission_classes = [IsAdminUser]
 
 
 class AmenityViewSet(viewsets.ModelViewSet):
     queryset = Amenity.objects.order_by('-pk')
     serializer_class = AmenitySerializer
-    permission_classes = [IsAdminUser]
 
 
 class RoomViewSet(viewsets.ModelViewSet):

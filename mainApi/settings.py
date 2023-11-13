@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-+opp&y$u52q27-ftw6htnif4hd-q-vj#y$bvm46s^#5c#cbumq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '52.54.186.208']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', '52.54.186.208']
 
 # Application definition
 
@@ -146,8 +146,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # https://www.django-rest-framework.org/api-guide/permissions/
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
-    ],
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.IsAuthenticated',
+    # ],
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }

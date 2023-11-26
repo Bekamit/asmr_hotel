@@ -3,3 +3,5 @@ djangorestframework
 psycopg2-binary
 gunicorn
 drf-spectacular
+django-cors-headers
+drf-writable-nested

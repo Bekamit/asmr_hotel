@@ -24,7 +24,8 @@ SECRET_KEY = 'django-insecure-+opp&y$u52q27-ftw6htnif4hd-q-vj#y$bvm46s^#5c#cbumq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', '52.54.186.208']
+# ALLOWED_HOSTS = ['127.0.0.1', '52.54.186.208']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', '35.197.38.98']
 
 # Application definition
 
@@ -39,10 +40,11 @@ INSTALLED_APPS = [
     # my_apps
     'my_auth',
     'management',
-    
+
     # my_libraries
     'rest_framework',
     'drf_spectacular',
+    "corsheaders",
 ]
 
 AUTH_USER_MODEL = 'my_auth.User'
@@ -50,6 +52,7 @@ AUTH_USER_MODEL = 'my_auth.User'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -87,7 +90,7 @@ DATABASES = {
         'USER': 'silver',
         'PASSWORD': '1',
         'HOST': 'db',
-        'PORT': '5432'
+        'PORT': '5432',
     }
 }
 
@@ -123,11 +126,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'venv/lib/python3.12/site-packages/rest_framework/static/')
+# ]
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 INTERNAL_IPS = [
     "127.0.0.1",

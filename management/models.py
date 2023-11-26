@@ -21,22 +21,23 @@ class RoomType(AbstractNameDescription):
     pass
 
 
-class Amenity(AbstractNameDescription):
+class Equipment(AbstractNameDescription):
     pass
 
 
 class Room(models.Model):
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name='rooms')
     type = models.ForeignKey(RoomType, on_delete=models.CASCADE, related_name='rooms')
-    number = models.CharField(max_length=20)
-    amenities = models.ManyToManyField(Amenity, related_name='rooms', through='management.RoomAmenity', blank=True)
+    equipments = models.ManyToManyField(Equipment, related_name='rooms', through='management.Amenity', blank=True)
+    name = models.CharField(max_length=20)
+    price = models.DecimalField(max_digits=9, decimal_places=2)
 
     objects = models.Manager()
 
 
-class RoomAmenity(models.Model):
-    room = models.ForeignKey(Room, on_delete=models.CASCADE, related_name='room_amenities')
-    amenity = models.ForeignKey(Amenity, on_delete=models.CASCADE, related_name='room_amenities')
-    amenity_count = models.PositiveSmallIntegerField()
+class Amenity(models.Model):
+    room = models.ForeignKey(Room, on_delete=models.CASCADE, related_name='amenities')
+    equipment = models.ForeignKey(Equipment, on_delete=models.CASCADE, related_name='amenities')
+    quantity = models.PositiveSmallIntegerField()
 
     objects = models.Manager()

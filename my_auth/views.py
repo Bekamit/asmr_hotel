@@ -35,7 +35,7 @@ from my_auth.utils import User
 
 
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.order_by('-pk')
+    queryset = User.objects.order_by('pk')
     serializer_class = UserSerializer
     permission_classes = [IsAdminUser]
 
@@ -47,7 +47,7 @@ class UserViewSet(viewsets.ModelViewSet):
         if self.action in ['retrieve_profile', 'update_profile', 'change_password']:
             return self.request.user
         else:
-            super().get_object()
+            return super().get_object()
 
     @action(
         methods=['post'],

@@ -1,4 +1,4 @@
-#!/home/silver/Desktop/asmr_hotelApi/venv/bin/python3
+#!/home/silver/Desktop/testing_projects/asmr_hotelApi/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
